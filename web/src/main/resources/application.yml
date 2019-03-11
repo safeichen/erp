@@ -1,0 +1,3 @@
+mybatis:
+  typeAliasesPackage: com.aqemachinery.erp.dal.entity
+  mapperLocations: classpath:mapper/*.xml
