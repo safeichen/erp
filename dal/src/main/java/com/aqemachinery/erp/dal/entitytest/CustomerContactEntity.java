@@ -1,4 +1,4 @@
-package com.aqemachinery.erp.dal.entity;
+package com.aqemachinery.erp.dal.entitytest;
 
 import java.sql.Timestamp;
 
