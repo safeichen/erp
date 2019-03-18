@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="dao.ContractEntityMapper" >
+  <resultMap id="BaseResultMap" type="entity.ContractEntity" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="contract_no" property="contractNo" jdbcType="VARCHAR" />
+    <result column="contract_date" property="contractDate" jdbcType="TIMESTAMP" />
+    <result column="customer_id" property="customerId" jdbcType="BIGINT" />
+    <result column="price_clause" property="priceClause" jdbcType="INTEGER" />
+    <result column="settlement_method" property="settlementMethod" jdbcType="INTEGER" />
+    <result column="creator" property="creator" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, contract_no, contract_date, customer_id, price_clause, settlement_method, creator, 
+    create_time, modify_user, modify_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from contract
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from contract
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="entity.ContractEntity" >
+    insert into contract (id, contract_no, contract_date, 
+      customer_id, price_clause, settlement_method, 
+      creator, create_time, modify_user, 
+      modify_time)
+    values (#{id,jdbcType=BIGINT}, #{contractNo,jdbcType=VARCHAR}, #{contractDate,jdbcType=TIMESTAMP}, 
+      #{customerId,jdbcType=BIGINT}, #{priceClause,jdbcType=INTEGER}, #{settlementMethod,jdbcType=INTEGER}, 
+      #{creator,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=VARCHAR}, 
+      #{modifyTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="entity.ContractEntity" >
+    insert into contract
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="contractNo != null" >
+        contract_no,
+      </if>
+      <if test="contractDate != null" >
+        contract_date,
+      </if>
+      <if test="customerId != null" >
+        customer_id,
+      </if>
+      <if test="priceClause != null" >
+        price_clause,
+      </if>
+      <if test="settlementMethod != null" >
+        settlement_method,
+      </if>
+      <if test="creator != null" >
+        creator,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="contractNo != null" >
+        #{contractNo,jdbcType=VARCHAR},
+      </if>
+      <if test="contractDate != null" >
+        #{contractDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="customerId != null" >
+        #{customerId,jdbcType=BIGINT},
+      </if>
+      <if test="priceClause != null" >
+        #{priceClause,jdbcType=INTEGER},
+      </if>
+      <if test="settlementMethod != null" >
+        #{settlementMethod,jdbcType=INTEGER},
+      </if>
+      <if test="creator != null" >
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="entity.ContractEntity" >
+    update contract
+    <set >
+      <if test="contractNo != null" >
+        contract_no = #{contractNo,jdbcType=VARCHAR},
+      </if>
+      <if test="contractDate != null" >
+        contract_date = #{contractDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="customerId != null" >
+        customer_id = #{customerId,jdbcType=BIGINT},
+      </if>
+      <if test="priceClause != null" >
+        price_clause = #{priceClause,jdbcType=INTEGER},
+      </if>
+      <if test="settlementMethod != null" >
+        settlement_method = #{settlementMethod,jdbcType=INTEGER},
+      </if>
+      <if test="creator != null" >
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="entity.ContractEntity" >
+    update contract
+    set contract_no = #{contractNo,jdbcType=VARCHAR},
+      contract_date = #{contractDate,jdbcType=TIMESTAMP},
+      customer_id = #{customerId,jdbcType=BIGINT},
+      price_clause = #{priceClause,jdbcType=INTEGER},
+      settlement_method = #{settlementMethod,jdbcType=INTEGER},
+      creator = #{creator,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

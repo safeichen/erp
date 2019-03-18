@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="dao.CustomerContactEntityMapper" >
+  <resultMap id="BaseResultMap" type="entity.CustomerContactEntity" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="customer_id" property="customerId" jdbcType="BIGINT" />
+    <result column="comtact_name" property="comtactName" jdbcType="VARCHAR" />
+    <result column="contact_department" property="contactDepartment" jdbcType="VARCHAR" />
+    <result column="contact_gender" property="contactGender" jdbcType="CHAR" />
+    <result column="contact_title" property="contactTitle" jdbcType="VARCHAR" />
+    <result column="contact_telephone" property="contactTelephone" jdbcType="VARCHAR" />
+    <result column="contact_mobilephone" property="contactMobilephone" jdbcType="VARCHAR" />
+    <result column="contact_fax" property="contactFax" jdbcType="VARCHAR" />
+    <result column="contact_email" property="contactEmail" jdbcType="VARCHAR" />
+    <result column="contact_reserve_email" property="contactReserveEmail" jdbcType="VARCHAR" />
+    <result column="creator" property="creator" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, customer_id, comtact_name, contact_department, contact_gender, contact_title, 
+    contact_telephone, contact_mobilephone, contact_fax, contact_email, contact_reserve_email, 
+    creator, create_time, modify_user, modify_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from customer_contact
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from customer_contact
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="entity.CustomerContactEntity" >
+    insert into customer_contact (id, customer_id, comtact_name, 
+      contact_department, contact_gender, contact_title, 
+      contact_telephone, contact_mobilephone, contact_fax, 
+      contact_email, contact_reserve_email, creator, 
+      create_time, modify_user, modify_time
+      )
+    values (#{id,jdbcType=BIGINT}, #{customerId,jdbcType=BIGINT}, #{comtactName,jdbcType=VARCHAR}, 
+      #{contactDepartment,jdbcType=VARCHAR}, #{contactGender,jdbcType=CHAR}, #{contactTitle,jdbcType=VARCHAR}, 
+      #{contactTelephone,jdbcType=VARCHAR}, #{contactMobilephone,jdbcType=VARCHAR}, #{contactFax,jdbcType=VARCHAR}, 
+      #{contactEmail,jdbcType=VARCHAR}, #{contactReserveEmail,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="entity.CustomerContactEntity" >
+    insert into customer_contact
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="customerId != null" >
+        customer_id,
+      </if>
+      <if test="comtactName != null" >
+        comtact_name,
+      </if>
+      <if test="contactDepartment != null" >
+        contact_department,
+      </if>
+      <if test="contactGender != null" >
+        contact_gender,
+      </if>
+      <if test="contactTitle != null" >
+        contact_title,
+      </if>
+      <if test="contactTelephone != null" >
+        contact_telephone,
+      </if>
+      <if test="contactMobilephone != null" >
+        contact_mobilephone,
+      </if>
+      <if test="contactFax != null" >
+        contact_fax,
+      </if>
+      <if test="contactEmail != null" >
+        contact_email,
+      </if>
+      <if test="contactReserveEmail != null" >
+        contact_reserve_email,
+      </if>
+      <if test="creator != null" >
+        creator,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="customerId != null" >
+        #{customerId,jdbcType=BIGINT},
+      </if>
+      <if test="comtactName != null" >
+        #{comtactName,jdbcType=VARCHAR},
+      </if>
+      <if test="contactDepartment != null" >
+        #{contactDepartment,jdbcType=VARCHAR},
+      </if>
+      <if test="contactGender != null" >
+        #{contactGender,jdbcType=CHAR},
+      </if>
+      <if test="contactTitle != null" >
+        #{contactTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="contactTelephone != null" >
+        #{contactTelephone,jdbcType=VARCHAR},
+      </if>
+      <if test="contactMobilephone != null" >
+        #{contactMobilephone,jdbcType=VARCHAR},
+      </if>
+      <if test="contactFax != null" >
+        #{contactFax,jdbcType=VARCHAR},
+      </if>
+      <if test="contactEmail != null" >
+        #{contactEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="contactReserveEmail != null" >
+        #{contactReserveEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null" >
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="entity.CustomerContactEntity" >
+    update customer_contact
+    <set >
+      <if test="customerId != null" >
+        customer_id = #{customerId,jdbcType=BIGINT},
+      </if>
+      <if test="comtactName != null" >
+        comtact_name = #{comtactName,jdbcType=VARCHAR},
+      </if>
+      <if test="contactDepartment != null" >
+        contact_department = #{contactDepartment,jdbcType=VARCHAR},
+      </if>
+      <if test="contactGender != null" >
+        contact_gender = #{contactGender,jdbcType=CHAR},
+      </if>
+      <if test="contactTitle != null" >
+        contact_title = #{contactTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="contactTelephone != null" >
+        contact_telephone = #{contactTelephone,jdbcType=VARCHAR},
+      </if>
+      <if test="contactMobilephone != null" >
+        contact_mobilephone = #{contactMobilephone,jdbcType=VARCHAR},
+      </if>
+      <if test="contactFax != null" >
+        contact_fax = #{contactFax,jdbcType=VARCHAR},
+      </if>
+      <if test="contactEmail != null" >
+        contact_email = #{contactEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="contactReserveEmail != null" >
+        contact_reserve_email = #{contactReserveEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null" >
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="entity.CustomerContactEntity" >
+    update customer_contact
+    set customer_id = #{customerId,jdbcType=BIGINT},
+      comtact_name = #{comtactName,jdbcType=VARCHAR},
+      contact_department = #{contactDepartment,jdbcType=VARCHAR},
+      contact_gender = #{contactGender,jdbcType=CHAR},
+      contact_title = #{contactTitle,jdbcType=VARCHAR},
+      contact_telephone = #{contactTelephone,jdbcType=VARCHAR},
+      contact_mobilephone = #{contactMobilephone,jdbcType=VARCHAR},
+      contact_fax = #{contactFax,jdbcType=VARCHAR},
+      contact_email = #{contactEmail,jdbcType=VARCHAR},
+      contact_reserve_email = #{contactReserveEmail,jdbcType=VARCHAR},
+      creator = #{creator,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="dao.ContractScheduleEntityMapper" >
+  <resultMap id="BaseResultMap" type="entity.ContractScheduleEntity" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="contract_id" property="contractId" jdbcType="BIGINT" />
+    <result column="reveived_deposit" property="reveivedDeposit" jdbcType="DECIMAL" />
+    <result column="deposit_date" property="depositDate" jdbcType="TIMESTAMP" />
+    <result column="reveived_balance" property="reveivedBalance" jdbcType="DECIMAL" />
+    <result column="balance_date" property="balanceDate" jdbcType="TIMESTAMP" />
+    <result column="expected_shipment_date" property="expectedShipmentDate" jdbcType="TIMESTAMP" />
+    <result column="actual_shipment_date" property="actualShipmentDate" jdbcType="TIMESTAMP" />
+    <result column="expected_arrival_date" property="expectedArrivalDate" jdbcType="TIMESTAMP" />
+    <result column="consignee" property="consignee" jdbcType="VARCHAR" />
+    <result column="payee" property="payee" jdbcType="VARCHAR" />
+    <result column="notifier" property="notifier" jdbcType="VARCHAR" />
+    <result column="document_requirement" property="documentRequirement" jdbcType="VARCHAR" />
+    <result column="special_requirement" property="specialRequirement" jdbcType="VARCHAR" />
+    <result column="positive_mark" property="positiveMark" jdbcType="VARCHAR" />
+    <result column="third_party_testing" property="thirdPartyTesting" jdbcType="CHAR" />
+    <result column="gross_profit" property="grossProfit" jdbcType="DECIMAL" />
+    <result column="gross_margin" property="grossMargin" jdbcType="DECIMAL" />
+    <result column="shipment_port" property="shipmentPort" jdbcType="VARCHAR" />
+    <result column="destination_port" property="destinationPort" jdbcType="VARCHAR" />
+    <result column="billing_date" property="billingDate" jdbcType="TIMESTAMP" />
+    <result column="billing_amount" property="billingAmount" jdbcType="DECIMAL" />
+    <result column="creator" property="creator" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, contract_id, reveived_deposit, deposit_date, reveived_balance, balance_date, 
+    expected_shipment_date, actual_shipment_date, expected_arrival_date, consignee, payee, 
+    notifier, document_requirement, special_requirement, positive_mark, third_party_testing, 
+    gross_profit, gross_margin, shipment_port, destination_port, billing_date, billing_amount, 
+    creator, create_time, modify_user, modify_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from contract_schedule
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from contract_schedule
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="entity.ContractScheduleEntity" >
+    insert into contract_schedule (id, contract_id, reveived_deposit, 
+      deposit_date, reveived_balance, balance_date, 
+      expected_shipment_date, actual_shipment_date, 
+      expected_arrival_date, consignee, payee, 
+      notifier, document_requirement, special_requirement, 
+      positive_mark, third_party_testing, gross_profit, 
+      gross_margin, shipment_port, destination_port, 
+      billing_date, billing_amount, creator, 
+      create_time, modify_user, modify_time
+      )
+    values (#{id,jdbcType=BIGINT}, #{contractId,jdbcType=BIGINT}, #{reveivedDeposit,jdbcType=DECIMAL}, 
+      #{depositDate,jdbcType=TIMESTAMP}, #{reveivedBalance,jdbcType=DECIMAL}, #{balanceDate,jdbcType=TIMESTAMP}, 
+      #{expectedShipmentDate,jdbcType=TIMESTAMP}, #{actualShipmentDate,jdbcType=TIMESTAMP}, 
+      #{expectedArrivalDate,jdbcType=TIMESTAMP}, #{consignee,jdbcType=VARCHAR}, #{payee,jdbcType=VARCHAR}, 
+      #{notifier,jdbcType=VARCHAR}, #{documentRequirement,jdbcType=VARCHAR}, #{specialRequirement,jdbcType=VARCHAR}, 
+      #{positiveMark,jdbcType=VARCHAR}, #{thirdPartyTesting,jdbcType=CHAR}, #{grossProfit,jdbcType=DECIMAL}, 
+      #{grossMargin,jdbcType=DECIMAL}, #{shipmentPort,jdbcType=VARCHAR}, #{destinationPort,jdbcType=VARCHAR}, 
+      #{billingDate,jdbcType=TIMESTAMP}, #{billingAmount,jdbcType=DECIMAL}, #{creator,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="entity.ContractScheduleEntity" >
+    insert into contract_schedule
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="contractId != null" >
+        contract_id,
+      </if>
+      <if test="reveivedDeposit != null" >
+        reveived_deposit,
+      </if>
+      <if test="depositDate != null" >
+        deposit_date,
+      </if>
+      <if test="reveivedBalance != null" >
+        reveived_balance,
+      </if>
+      <if test="balanceDate != null" >
+        balance_date,
+      </if>
+      <if test="expectedShipmentDate != null" >
+        expected_shipment_date,
+      </if>
+      <if test="actualShipmentDate != null" >
+        actual_shipment_date,
+      </if>
+      <if test="expectedArrivalDate != null" >
+        expected_arrival_date,
+      </if>
+      <if test="consignee != null" >
+        consignee,
+      </if>
+      <if test="payee != null" >
+        payee,
+      </if>
+      <if test="notifier != null" >
+        notifier,
+      </if>
+      <if test="documentRequirement != null" >
+        document_requirement,
+      </if>
+      <if test="specialRequirement != null" >
+        special_requirement,
+      </if>
+      <if test="positiveMark != null" >
+        positive_mark,
+      </if>
+      <if test="thirdPartyTesting != null" >
+        third_party_testing,
+      </if>
+      <if test="grossProfit != null" >
+        gross_profit,
+      </if>
+      <if test="grossMargin != null" >
+        gross_margin,
+      </if>
+      <if test="shipmentPort != null" >
+        shipment_port,
+      </if>
+      <if test="destinationPort != null" >
+        destination_port,
+      </if>
+      <if test="billingDate != null" >
+        billing_date,
+      </if>
+      <if test="billingAmount != null" >
+        billing_amount,
+      </if>
+      <if test="creator != null" >
+        creator,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="contractId != null" >
+        #{contractId,jdbcType=BIGINT},
+      </if>
+      <if test="reveivedDeposit != null" >
+        #{reveivedDeposit,jdbcType=DECIMAL},
+      </if>
+      <if test="depositDate != null" >
+        #{depositDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="reveivedBalance != null" >
+        #{reveivedBalance,jdbcType=DECIMAL},
+      </if>
+      <if test="balanceDate != null" >
+        #{balanceDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="expectedShipmentDate != null" >
+        #{expectedShipmentDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="actualShipmentDate != null" >
+        #{actualShipmentDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="expectedArrivalDate != null" >
+        #{expectedArrivalDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="consignee != null" >
+        #{consignee,jdbcType=VARCHAR},
+      </if>
+      <if test="payee != null" >
+        #{payee,jdbcType=VARCHAR},
+      </if>
+      <if test="notifier != null" >
+        #{notifier,jdbcType=VARCHAR},
+      </if>
+      <if test="documentRequirement != null" >
+        #{documentRequirement,jdbcType=VARCHAR},
+      </if>
+      <if test="specialRequirement != null" >
+        #{specialRequirement,jdbcType=VARCHAR},
+      </if>
+      <if test="positiveMark != null" >
+        #{positiveMark,jdbcType=VARCHAR},
+      </if>
+      <if test="thirdPartyTesting != null" >
+        #{thirdPartyTesting,jdbcType=CHAR},
+      </if>
+      <if test="grossProfit != null" >
+        #{grossProfit,jdbcType=DECIMAL},
+      </if>
+      <if test="grossMargin != null" >
+        #{grossMargin,jdbcType=DECIMAL},
+      </if>
+      <if test="shipmentPort != null" >
+        #{shipmentPort,jdbcType=VARCHAR},
+      </if>
+      <if test="destinationPort != null" >
+        #{destinationPort,jdbcType=VARCHAR},
+      </if>
+      <if test="billingDate != null" >
+        #{billingDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="billingAmount != null" >
+        #{billingAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="creator != null" >
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="entity.ContractScheduleEntity" >
+    update contract_schedule
+    <set >
+      <if test="contractId != null" >
+        contract_id = #{contractId,jdbcType=BIGINT},
+      </if>
+      <if test="reveivedDeposit != null" >
+        reveived_deposit = #{reveivedDeposit,jdbcType=DECIMAL},
+      </if>
+      <if test="depositDate != null" >
+        deposit_date = #{depositDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="reveivedBalance != null" >
+        reveived_balance = #{reveivedBalance,jdbcType=DECIMAL},
+      </if>
+      <if test="balanceDate != null" >
+        balance_date = #{balanceDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="expectedShipmentDate != null" >
+        expected_shipment_date = #{expectedShipmentDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="actualShipmentDate != null" >
+        actual_shipment_date = #{actualShipmentDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="expectedArrivalDate != null" >
+        expected_arrival_date = #{expectedArrivalDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="consignee != null" >
+        consignee = #{consignee,jdbcType=VARCHAR},
+      </if>
+      <if test="payee != null" >
+        payee = #{payee,jdbcType=VARCHAR},
+      </if>
+      <if test="notifier != null" >
+        notifier = #{notifier,jdbcType=VARCHAR},
+      </if>
+      <if test="documentRequirement != null" >
+        document_requirement = #{documentRequirement,jdbcType=VARCHAR},
+      </if>
+      <if test="specialRequirement != null" >
+        special_requirement = #{specialRequirement,jdbcType=VARCHAR},
+      </if>
+      <if test="positiveMark != null" >
+        positive_mark = #{positiveMark,jdbcType=VARCHAR},
+      </if>
+      <if test="thirdPartyTesting != null" >
+        third_party_testing = #{thirdPartyTesting,jdbcType=CHAR},
+      </if>
+      <if test="grossProfit != null" >
+        gross_profit = #{grossProfit,jdbcType=DECIMAL},
+      </if>
+      <if test="grossMargin != null" >
+        gross_margin = #{grossMargin,jdbcType=DECIMAL},
+      </if>
+      <if test="shipmentPort != null" >
+        shipment_port = #{shipmentPort,jdbcType=VARCHAR},
+      </if>
+      <if test="destinationPort != null" >
+        destination_port = #{destinationPort,jdbcType=VARCHAR},
+      </if>
+      <if test="billingDate != null" >
+        billing_date = #{billingDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="billingAmount != null" >
+        billing_amount = #{billingAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="creator != null" >
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="entity.ContractScheduleEntity" >
+    update contract_schedule
+    set contract_id = #{contractId,jdbcType=BIGINT},
+      reveived_deposit = #{reveivedDeposit,jdbcType=DECIMAL},
+      deposit_date = #{depositDate,jdbcType=TIMESTAMP},
+      reveived_balance = #{reveivedBalance,jdbcType=DECIMAL},
+      balance_date = #{balanceDate,jdbcType=TIMESTAMP},
+      expected_shipment_date = #{expectedShipmentDate,jdbcType=TIMESTAMP},
+      actual_shipment_date = #{actualShipmentDate,jdbcType=TIMESTAMP},
+      expected_arrival_date = #{expectedArrivalDate,jdbcType=TIMESTAMP},
+      consignee = #{consignee,jdbcType=VARCHAR},
+      payee = #{payee,jdbcType=VARCHAR},
+      notifier = #{notifier,jdbcType=VARCHAR},
+      document_requirement = #{documentRequirement,jdbcType=VARCHAR},
+      special_requirement = #{specialRequirement,jdbcType=VARCHAR},
+      positive_mark = #{positiveMark,jdbcType=VARCHAR},
+      third_party_testing = #{thirdPartyTesting,jdbcType=CHAR},
+      gross_profit = #{grossProfit,jdbcType=DECIMAL},
+      gross_margin = #{grossMargin,jdbcType=DECIMAL},
+      shipment_port = #{shipmentPort,jdbcType=VARCHAR},
+      destination_port = #{destinationPort,jdbcType=VARCHAR},
+      billing_date = #{billingDate,jdbcType=TIMESTAMP},
+      billing_amount = #{billingAmount,jdbcType=DECIMAL},
+      creator = #{creator,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

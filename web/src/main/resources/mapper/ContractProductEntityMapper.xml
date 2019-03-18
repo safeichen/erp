@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="dao.ContractProductEntityMapper" >
+  <resultMap id="BaseResultMap" type="entity.ContractProductEntity" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="contract_id" property="contractId" jdbcType="BIGINT" />
+    <result column="product_id" property="productId" jdbcType="BIGINT" />
+    <result column="product_quantity" property="productQuantity" jdbcType="INTEGER" />
+    <result column="product_name" property="productName" jdbcType="VARCHAR" />
+    <result column="product_ename" property="productEname" jdbcType="VARCHAR" />
+    <result column="figure_no" property="figureNo" jdbcType="VARCHAR" />
+    <result column="pn_no" property="pnNo" jdbcType="VARCHAR" />
+    <result column="sale_price" property="salePrice" jdbcType="DECIMAL" />
+    <result column="settlement_price" property="settlementPrice" jdbcType="DECIMAL" />
+    <result column="packing_requirement" property="packingRequirement" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="creator" property="creator" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="modify_user" property="modifyUser" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, contract_id, product_id, product_quantity, product_name, product_ename, figure_no, 
+    pn_no, sale_price, settlement_price, packing_requirement, remark, creator, create_time, 
+    modify_user, modify_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from contract_product
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from contract_product
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="entity.ContractProductEntity" >
+    insert into contract_product (id, contract_id, product_id, 
+      product_quantity, product_name, product_ename, 
+      figure_no, pn_no, sale_price, 
+      settlement_price, packing_requirement, remark, 
+      creator, create_time, modify_user, 
+      modify_time)
+    values (#{id,jdbcType=BIGINT}, #{contractId,jdbcType=BIGINT}, #{productId,jdbcType=BIGINT}, 
+      #{productQuantity,jdbcType=INTEGER}, #{productName,jdbcType=VARCHAR}, #{productEname,jdbcType=VARCHAR}, 
+      #{figureNo,jdbcType=VARCHAR}, #{pnNo,jdbcType=VARCHAR}, #{salePrice,jdbcType=DECIMAL}, 
+      #{settlementPrice,jdbcType=DECIMAL}, #{packingRequirement,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
+      #{creator,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=VARCHAR}, 
+      #{modifyTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="entity.ContractProductEntity" >
+    insert into contract_product
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="contractId != null" >
+        contract_id,
+      </if>
+      <if test="productId != null" >
+        product_id,
+      </if>
+      <if test="productQuantity != null" >
+        product_quantity,
+      </if>
+      <if test="productName != null" >
+        product_name,
+      </if>
+      <if test="productEname != null" >
+        product_ename,
+      </if>
+      <if test="figureNo != null" >
+        figure_no,
+      </if>
+      <if test="pnNo != null" >
+        pn_no,
+      </if>
+      <if test="salePrice != null" >
+        sale_price,
+      </if>
+      <if test="settlementPrice != null" >
+        settlement_price,
+      </if>
+      <if test="packingRequirement != null" >
+        packing_requirement,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="creator != null" >
+        creator,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="modifyUser != null" >
+        modify_user,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="contractId != null" >
+        #{contractId,jdbcType=BIGINT},
+      </if>
+      <if test="productId != null" >
+        #{productId,jdbcType=BIGINT},
+      </if>
+      <if test="productQuantity != null" >
+        #{productQuantity,jdbcType=INTEGER},
+      </if>
+      <if test="productName != null" >
+        #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="productEname != null" >
+        #{productEname,jdbcType=VARCHAR},
+      </if>
+      <if test="figureNo != null" >
+        #{figureNo,jdbcType=VARCHAR},
+      </if>
+      <if test="pnNo != null" >
+        #{pnNo,jdbcType=VARCHAR},
+      </if>
+      <if test="salePrice != null" >
+        #{salePrice,jdbcType=DECIMAL},
+      </if>
+      <if test="settlementPrice != null" >
+        #{settlementPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="packingRequirement != null" >
+        #{packingRequirement,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null" >
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        #{modifyUser,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="entity.ContractProductEntity" >
+    update contract_product
+    <set >
+      <if test="contractId != null" >
+        contract_id = #{contractId,jdbcType=BIGINT},
+      </if>
+      <if test="productId != null" >
+        product_id = #{productId,jdbcType=BIGINT},
+      </if>
+      <if test="productQuantity != null" >
+        product_quantity = #{productQuantity,jdbcType=INTEGER},
+      </if>
+      <if test="productName != null" >
+        product_name = #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="productEname != null" >
+        product_ename = #{productEname,jdbcType=VARCHAR},
+      </if>
+      <if test="figureNo != null" >
+        figure_no = #{figureNo,jdbcType=VARCHAR},
+      </if>
+      <if test="pnNo != null" >
+        pn_no = #{pnNo,jdbcType=VARCHAR},
+      </if>
+      <if test="salePrice != null" >
+        sale_price = #{salePrice,jdbcType=DECIMAL},
+      </if>
+      <if test="settlementPrice != null" >
+        settlement_price = #{settlementPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="packingRequirement != null" >
+        packing_requirement = #{packingRequirement,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null" >
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null" >
+        modify_user = #{modifyUser,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="entity.ContractProductEntity" >
+    update contract_product
+    set contract_id = #{contractId,jdbcType=BIGINT},
+      product_id = #{productId,jdbcType=BIGINT},
+      product_quantity = #{productQuantity,jdbcType=INTEGER},
+      product_name = #{productName,jdbcType=VARCHAR},
+      product_ename = #{productEname,jdbcType=VARCHAR},
+      figure_no = #{figureNo,jdbcType=VARCHAR},
+      pn_no = #{pnNo,jdbcType=VARCHAR},
+      sale_price = #{salePrice,jdbcType=DECIMAL},
+      settlement_price = #{settlementPrice,jdbcType=DECIMAL},
+      packing_requirement = #{packingRequirement,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      creator = #{creator,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
