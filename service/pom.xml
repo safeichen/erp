@@ -12,5 +12,16 @@
     <groupId>com.aqemachinery.erp</groupId>
     <artifactId>service</artifactId>
 
-
+    <dependencies>
+        <dependency>
+            <groupId>com.aqemachinery.erp</groupId>
+            <artifactId>common</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.aqemachinery.erp</groupId>
+            <artifactId>dal</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+    </dependencies>
 </project>

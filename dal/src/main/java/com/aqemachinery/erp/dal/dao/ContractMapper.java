@@ -2,7 +2,9 @@ package com.aqemachinery.erp.dal.dao;
 
 
 import com.aqemachinery.erp.dal.entity.ContractEntity;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface ContractMapper {
     int deleteByPrimaryKey(Long id);
 

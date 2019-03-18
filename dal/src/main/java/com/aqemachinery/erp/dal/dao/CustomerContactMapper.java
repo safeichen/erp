@@ -2,7 +2,9 @@ package com.aqemachinery.erp.dal.dao;
 
 
 import com.aqemachinery.erp.dal.entity.CustomerContactEntity;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface CustomerContactMapper {
     int deleteByPrimaryKey(Long id);
 
