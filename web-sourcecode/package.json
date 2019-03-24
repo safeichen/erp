@@ -5,6 +5,7 @@
   "dependencies": {
     "antd": "^3.6.6",
     "braft-editor": "^2.1.18",
+    "copy-to-clipboard": "^3.0.5",
     "isomorphic-fetch": "^2.2.1",
     "jquery": "^3.3.1",
     "react": "^16.8.4",
@@ -13,8 +14,7 @@
     "react-router-dom": "^4.3.1",
     "react-router-redux": "^4.0.8",
     "react-scripts": "1.1.4",
-    "redux": "^3.7.2",
-    "copy-to-clipboard": "^3.0.5"
+    "redux": "^3.7.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -45,6 +45,7 @@
     "isomorphic-fetch": "^2.2.1",
     "jquery": "^3.3.1",
     "node-static": "^0.7.10",
-    "react-app-rewired": "^1.5.2"
+    "react-app-rewired": "^1.5.2",
+    "webpack": "^3.12.0"
   }
 }

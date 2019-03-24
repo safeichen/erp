@@ -5,7 +5,7 @@ module.exports = {
             index:path.resolve(__dirname, './src/index')
         },
     output: {
-        path: path.resolve(__dirname, '../js'),
+        path: path.resolve(__dirname, '../web/web-inf/js'),
         filename: '[name].js'
     },
  
