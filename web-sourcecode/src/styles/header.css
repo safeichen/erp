@@ -1,0 +1,85 @@
+.top-header{
+    width: 1180px;
+    position: relative;
+    height: 64px;
+    margin: 0 auto;
+}
+.top-left{
+    float: left;
+    display: inline;
+    height: 64px;
+}
+.top-right{
+    float: right;
+    display: inline;
+    height: 64px;
+}
+.logo-image{
+    background-image: url(http://picint.sh.ctriptravel.com/vacation_v2/socialization/un_splite.png);
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    vertical-align: -7px;
+    margin-right: 5px;
+}
+.logo-text{
+    font-size: 24px;
+    color: #FFF;
+}
+.fast-link a{
+    color: #fff;
+    display: inline-block;
+    margin-left: 30px;
+    font-size: 12px;
+}
+.fast-link a:hover{
+    text-decoration: underline;
+}
+
+.trigger{
+    font-size: 18px;
+    line-height: 50px;
+    padding: 0 24px;
+    cursor: pointer;
+    color: #fff;
+    vertical-align: middle;
+  }
+.logo{
+    height: 50px;
+    padding: 10px;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #367fa9;
+    box-sizing: border-box;
+    text-align: center;
+    white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  }
+.usermessage{
+    display: inline-block; 
+    position: absolute;
+    right: 50px;
+    top: 0;
+    height: 50px;
+}
+.userimg{
+    display: inline-block;
+    height: 50px;
+    width: 50px;
+    text-align: center;
+}
+.usercontent{
+    display: inline-block;
+    color: #fff;
+}
+.usernumber,.usercontrol{
+    height: 50px;
+    vertical-align: middle;
+}
+
+.a-link-menu {
+    color: #FFF;
+    text-decoration: none;
+}

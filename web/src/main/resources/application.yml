@@ -1,3 +1,11 @@
 mybatis:
   typeAliasesPackage: com.aqemachinery.erp.dal.entity
   mapperLocations: classpath:mapper/*.xml
+spring:
+  datasource:
+    name: erpdb
+    url: jdbc:mysql://rm-bp1858pwseew5ds8cdo.mysql.rds.aliyuncs.com:3306
+    username: erp_admin
+    password: SunHuanxia3306
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
